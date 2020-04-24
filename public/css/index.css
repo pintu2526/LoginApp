@@ -1,0 +1,90 @@
+.navbar-nav > li{
+  padding-left:10px;
+  padding-right:30px;
+}
+
+.navbar-brand {
+  margin-left: 15px;
+}
+
+form {
+  padding: 5px;
+  min-width: 400px;
+}
+
+body {
+  background-image: url('../images/bg1.jpg');
+  background-size: 100%;
+}
+
+.border {
+  margin: 130px !important;
+  border-width:1.5px !important;
+}
+
+.form-control {
+  font-size: large;
+}
+
+label {
+  font-size: large;
+  font-weight: bolder;
+  color: white;
+}
+
+#overlay {
+  display: none;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 2;
+  cursor: pointer;
+  display: block;
+}
+
+#footer {
+  text-align: center;
+  position: fixed;
+  margin-left: 530px;
+  bottom: 0px
+}
+
+.container {
+  margin-top: 100px;
+}
+
+.profile-image {
+  border-radius: 8px;
+  display: block;
+  width: 400px;
+}
+
+.info-header {
+  font: italic 2.2em "Fira Sans", serif;;
+}
+
+.data {
+  padding-top: 10px;
+  font-weight: normal;
+}
+
+.to-move-rignt {
+  position: absolute;
+  left: 800px;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  overflow:hidden;
+  font: normal 1.2em "Fira Sans", serif;;
+}
+
+#message-to-show {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding-bottom: 8px;
+}

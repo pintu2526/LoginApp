@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <%- include("./head") -%>
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+
+<body>
+  <%- include("./navbar") -%>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <form action="#" class="border border-primary rounded" id="overlay">
+        <h4 class="display-5 py-2 text-truncate">Login Form.</h4>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp"
+            placeholder="example@example.com">
+          <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="******">
+        </div>
+        <div class="d-nonet form-text" id="message-to-show">
+          <span class="info"></span>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary login-to-app">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+  <script>
+    $(".login-to-app").click(function (event) {
+      event.preventDefault();
+      let email = $('#exampleInputEmail1').val();
+      let password = $('#exampleInputPassword1').val();
+      let data = {
+        email: email,
+        password: password
+      }
+      $.post('/login', data, function(resp, status){
+        if(resp.status == 'success'){
+          window.location.href = "http://localhost:3000/home";
+        } else if (resp.status == 'incorrect user or pass') {
+          $('#message-to-show').removeClass('d-none');
+          $('.info').text('Invalid Password');
+        } else if (resp.status == 'User does not exist') {
+          $('#message-to-show').removeClass('d-none');
+          $('.info').text('User does not exist');
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
